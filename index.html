@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/css.css">
+    <title>Urubu do Pix</title>
+</head>
+
+<body>
+    <main>
+
+        <div class="meioameio">
+            <img class="pix" src="./img/pix.png" alt="Logo PIX">
+            <span class="name">Urubu do PIX</span>
+            <img class="urubu" src="./img/pngegg.png" alt="Imagem do Urubu">
+        </div>
+    
+    </main>
+    
+    <section>
+        <span>Saco do Urubu</span>
+        <p>R$ 983,00</p>
+        <p>Valor por cota: R$ 1,00</p>
+    
+        <p class="aviso">Falta pouco para o urubu entregar o saco 😍</p>
+        <div class="barra">
+            <p>85%</p>
+            <div class="suco"></div>
+        </div>
+    
+        <div class="aposta">
+            <span>Faça sua aposta</span>
+    
+            <input type="text" placeholder="Seu nome">
+            <input type="tel" placeholder="Seu WhatsApp">
+            <input type="text" placeholder="Sua chave PIX">
+            <input type="number" placeholder="Cotas">
+            <input class="btn" type="button" value="Comprar">
+        </div>
+    </section>
+    
+    <footer>
+        <span>Últimos ganhadores</span>
+        <div class="ganhadores"></div>
+    </footer>
+    
+
+    <script>
+        // Selecione o elemento footer
+        const footer = document.querySelector('.ganhadores');
+
+        // Função para adicionar frases ao footer
+        function adicionaFrase(nome, valor) {
+            // Crie um novo elemento p
+            const frase = document.createElement('p');
+
+            // Adicione o texto à frase
+            frase.textContent = `${nome} ganhou: ${valor},00 `;
+
+            // Adicione a frase ao footer
+            footer.appendChild(frase);
+        }
+
+        // Lista de nomes e valores
+        const nomes = [
+  'Vito Chaves',
+  'Ana Cecilia',
+  'Roberto Mendoça',
+  'João Silva',
+  'Maria Oliveira',
+  'Pedro Henrique',
+  'Luana Souza',
+  'Carlos Eduardo',
+  'Beatriz Costa',
+  'Rafael Santos',
+  'Gabriela Lima',
+  'Felipe Oliveira',
+  'Juliana Martins',
+  'Anderson Silva',
+  'Camila Alves',
+  'Thiago Mendes',
+  'Aline Farias',
+  'Lucas Barbosa',
+  'Isabela Pereira',
+  'Vinicius Castro',
+  'Sofia Rodrigues',
+  'Matheus Souza',
+  'Julia Lima',
+  'Ricardo Oliveira',
+  'Patricia Silva'
+];
+
+const valores = [
+  'R$ 42', 'R$ 53', 'R$ 67', 'R$ 71', 'R$ 82',
+  'R$ 93', 'R$ 101', 'R$ 112', 'R$ 117', 'R$ 128',
+  'R$ 139', 'R$ 142', 'R$ 151', 'R$ 162', 'R$ 173',
+  'R$ 184', 'R$ 195', 'R$ 206', 'R$ 217', 'R$ 221',
+  'R$ 52', 'R$ 63', 'R$ 74', 'R$ 85', 'R$ 96'
+];
+
+        // Índice atual da lista
+        let indice = 0;
+
+        // Função para adicionar frase a cada 10 segundos
+        function adicionaFraseAutomaticamente() {
+            // Adicione a frase atual
+            adicionaFrase(nomes[indice], valores[indice]);
+
+            // Incremente o índice
+            indice = (indice + 1) % nomes.length;
+
+            // Agende a próxima adição para 10 segundos
+            setTimeout(adicionaFraseAutomaticamente, 10000);
+        }
+
+        // Inicie a adição automática
+        adicionaFraseAutomaticamente();
+
+
+        document.querySelector('.btn').addEventListener('click', ()=>{
+            alert('Calma ai meu chapa ainda estamos terminando o bagulho!')
+        });
+    </script>
+</body>
+
+</html>
